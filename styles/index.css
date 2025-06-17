@@ -1,0 +1,11 @@
+@import "../app/globals.css";
+
+
+/* PAGES */
+/* @import "../app/admin/(dashboard)/profile/profile.css"; */
+
+
+
+/* COMPONENTS */
+@import "../components/sidebar/app-sidebar.css";
+
