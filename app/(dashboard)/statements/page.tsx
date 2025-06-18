@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, ReactElement } from "react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ButtonDemo, InputDemo, ComboboxDemo } from "@/components/index";
 import localData from "@/localData";
 
@@ -104,7 +104,11 @@ const Statement = () => {
                   <ButtonDemo
                     onClick={() => {
                       const input = document.querySelector<HTMLInputElement>("#date-picker");
-                      input?.showPicker?.() || input?.click();
+                      if (input?.showPicker) {
+                        input.showPicker();
+                      } else {
+                        input?.click();
+                      }
                     }}
                     startIcon={calendarImage}
                     variant="ghost"
@@ -238,7 +242,6 @@ const fetchedClients = {
       date: "03-03-2025",
       time: "02:34PM",
     },
-  
   ],
 };
 
@@ -251,14 +254,12 @@ const StatementsTable = () => {
     if (!fetchedClients.list.length) return;
 
     const getData = (): Payment[] => {
-      return fetchedClients.list
-        .map((item) => {
-          return {
-            ...item,
-            name: item.name || "",
-        
-          };
-        });
+      return fetchedClients.list.map((item) => {
+        return {
+          ...item,
+          name: item.name || "",
+        };
+      });
     };
 
     const data = getData();
@@ -276,7 +277,7 @@ const StatementsTable = () => {
         </div>
       </CardHeader>
       <CardContent className="px-3 py-6 flex gap-3 items-end flex-wrap">
-          <DataTableDemo data={filteredData} columns={columns} />
+        <DataTableDemo data={filteredData} columns={columns} />
       </CardContent>
     </Card>
   );
