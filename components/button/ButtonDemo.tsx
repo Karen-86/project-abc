@@ -104,9 +104,9 @@ export function ButtonDemo({
       size={size}
       disabled={disabled}
       className={`
-           cursor-pointer text-[10px] 4xl:text-[14px] !px-2 leading-none !py-[7px] !h-auto
+           cursor-pointer text-[10px] 4xl:text-[16px] !px-2 4xl:!px-4 leading-none !py-[7px] 4xl:!py-[10px] !h-auto
         ${className} ${buttonStyle} ${shape == "circle" ? "rounded-full !w-[35px] !h-[35px] !p-2" : ""}
-         ${size == "lg" ? "!py-[10px] !px-[10px]" : ""}
+         ${size == "lg" ? "!py-[12px] !px-[16px]" : ""}
         `}
       onClick={onClick}
       {...props}

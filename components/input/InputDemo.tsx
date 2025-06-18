@@ -39,13 +39,13 @@ export function InputDemo({
 
   return (
     <div className={`field grid items-center gap-1.5  ${className} `}>
-      {label && <Label htmlFor={id}>{label}</Label>}
+      {label && <Label htmlFor={id} className="mb-1 text-xs 4xl:text-sm">{label}</Label>}
       <div className={`relative `}>
         <Input
           id={id}
           {...props}
           onChange={onChange}
-          className={`bg-white ${inputClassName} ${endIcon ? "pr-9" : ""} ${
+          className={`bg-white text-xs  ${inputClassName} ${endIcon ? "pr-9" : ""} ${
             _size == "lg" ? "!py-6 rounded-xl" : ""
           }`}
         />

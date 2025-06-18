@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Krona_One } from 'next/font/google';
+import { Space_Grotesk, Krona_One, Geist  } from 'next/font/google';
 import "@/styles/index.css";
 import AuthProvider from "@/contexts/AuthContext";
 import ApiProvider from "@/contexts/ApiContext";
@@ -17,8 +17,10 @@ const kronaOne = Krona_One({
   weight: ['400'],
 });
 
-
-
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -32,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${kronaOne.variable} ${spaceGrotesk.variable} antialiased`}>
+      <body className={`${kronaOne.variable} ${spaceGrotesk.variable}  ${geistSans.variable}  antialiased`}>
         <AuthProvider>
           <ApiProvider>{children}</ApiProvider>
         </AuthProvider>

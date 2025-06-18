@@ -17,13 +17,14 @@ const {
   candlestickIcon,
   dragIndicatorIcon,
   arrowRightIcon,
+  upcomingIcon,
 } = localData.svgs;
 
 const Home = () => {
   return (
     <div className="min-h-[100vh] px-5 mb-[100px]">
-      <div className="grid grid-cols-[2.5fr_1fr] gap-[24px]">
-        <Card className="shadow-none bg-custom-lightblue rounded-sm py-3 gap-0 justify-between">
+      <div className="grid 2xl:grid-cols-[2.5fr_1fr] gap-[24px]">
+        <Card className="shadow-none bg-[rgba(237,225,255,0.1)] rounded-sm py-3 gap-0 justify-between">
           <CardHeader className="flex justify-between gap-10 px-3">
             <div className="flex gap-3 items-center">
               <div>
@@ -31,7 +32,7 @@ const Home = () => {
               </div>
               <div>
                 <CardTitle className=" text-[16px] 4xl:text-[20px] font-medium font-krona-one">AMY</CardTitle>
-                <CardDescription className="text-[11px]  4xl:text-[16px]">
+                <CardDescription className="text-[11px]  4xl:text-[18px]">
                   Get instant help with portfolio management, client queries, and market insights
                 </CardDescription>
               </div>
@@ -63,11 +64,11 @@ const Home = () => {
           </CardContent>
         </Card>
 
-        <Card className="shadow-none rounded-sm p-0 gap-0">
-          <CardHeader className="flex items-center justify-between gap-5  py-[7px] px-[7px] pl-6 bg-custom-lightblue">
+        <Card className="shadow-none rounded-sm p-0 gap-0 row-start-3 2xl:row-start-auto">
+          <CardHeader className="flex items-center justify-between gap-5  py-[7px] px-[7px] min-h-[50px] pl-6 bg-custom-lightblue">
             <div className="flex gap-2 items-center">
               <div className="svg-size-sm">{acuteIcon}</div>
-              <CardTitle className=" text-[14px] 4xl:text-[18px] font-medium">Today’s Activity</CardTitle>
+              <CardTitle className=" text-[14px] 4xl:text-[23px] font-medium">Today’s Activity</CardTitle>
             </div>
             <div className="">
               <ButtonDemo className="" icon={dragIndicatorIcon} variant="ghost" color="gray" shape="circle" />
@@ -75,48 +76,48 @@ const Home = () => {
           </CardHeader>
           <CardContent className="px-3 py-3">
             <div className="activity-card card  p-3 rounded-lg hover:bg-neutral-50">
-              <h4 className="card-title text-sm font-bold mb-3 flex items-center">
-                <div className="w-[5px] h-[5px] bg-destructive rounded-full mr-1"></div>Upcoming Capital Call
+              <h4 className="card-title text-sm 4xl:text-lg font-bold mb-3 flex items-center">
+                <div className="w-[5px] h-[5px]  bg-destructive rounded-full mr-1"></div>Upcoming Capital Call
               </h4>
-              <p className="card-description text-secondary text-xs mb-3">
+              <p className="card-description text-secondary text-xs 4xl:text-sm mb-3">
                 ₹2.5 Cr due from investors in Fund Gamma by June 5
               </p>
-              <div className="card-date text-custom-blue text-xs font-medium">Tomorrow; 5:00 PM</div>
+              <div className="card-date text-custom-blue text-xs 4xl:text-sm font-medium">Tomorrow; 5:00 PM</div>
             </div>
 
             <div className="activity-card card  p-3 rounded-lg hover:bg-neutral-50">
-              <h4 className="card-title text-sm font-bold mb-3 flex items-center">
-                <div className="w-[5px] h-[5px] bg-yellow-500 rounded-full mr-1"></div>NAV Update Alert
+              <h4 className="card-title text-sm 4xl:text-lg font-bold mb-3 flex items-center">
+                <div className="w-[5px] h-[5px]  bg-yellow-500 rounded-full mr-1"></div>NAV Update Alert
               </h4>
-              <p className="card-description text-secondary text-xs mb-3">
+              <p className="card-description text-secondary text-xs 4xl:text-sm mb-3">
                 Fund III valuation cycle due. Review third-party reports
               </p>
-              <div className="card-date text-custom-blue text-xs font-medium">Tomorrow; 5:00 PM</div>
+              <div className="card-date text-custom-blue text-xs 4xl:text-sm font-medium">Tomorrow; 5:00 PM</div>
             </div>
 
             <div className="activity-card card  p-3 rounded-lg hover:bg-neutral-50">
-              <h4 className="card-title text-sm font-bold mb-3 flex items-center">
-                <div className="w-[5px] h-[5px] bg-yellow-500 rounded-full mr-1"></div>Distribution Payout
+              <h4 className="card-title text-sm 4xl:text-lg font-bold mb-3 flex items-center">
+                <div className="w-[5px] h-[5px]  bg-yellow-500 rounded-full mr-1"></div>Distribution Payout
               </h4>
-              <p className="card-description text-secondary text-xs mb-3">
+              <p className="card-description text-secondary text-xs 4xl:text-sm mb-3">
                 Fund I ready to initiate ₹4.5 Cr distribution. Review waterfall and LP splits
               </p>
-              <div className="card-date text-custom-blue text-xs font-medium">Process Maturity</div>
+              <div className="card-date text-custom-blue text-xs 4xl:text-sm font-medium">Process Maturity</div>
             </div>
           </CardContent>
         </Card>
 
         <Card className="shadow-none rounded-sm p-0 gap-0">
-          <CardHeader className="flex items-center justify-between gap-5  py-[7px] px-[7px] pl-6 bg-custom-lightblue">
+          <CardHeader className="flex items-center justify-between gap-5  py-[7px] px-[7px]  min-h-[50px] pl-6 bg-custom-lightblue">
             <div className="flex gap-2 items-center">
               <div className="svg-size-sm svg-size-xs">{candlestickIcon}</div>
-              <CardTitle className=" text-[14px] 4xl:text-[18px] font-medium">Key Metrics</CardTitle>
+              <CardTitle className=" text-[14px] 4xl:text-[23px] font-medium">Key Metrics</CardTitle>
             </div>
             <div className="">
               <ButtonDemo className="" icon={dragIndicatorIcon} variant="ghost" color="gray" shape="circle" />
             </div>
           </CardHeader>
-          <CardContent className="flex flex-col 2xl:flex-row gap-3 gap-x-10 py-3 px-3">
+          <CardContent className="flex flex-col items-start lg:flex-row gap-3 gap-x-10 py-3 px-3">
             <div className="flex flex-wrap gap-3 flex-1">
               <div className="liabilities flex-1 min-w-[170px]">
                 <div className="card card-liabilities p-3 bg-gray-50 rounded-md">
@@ -124,13 +125,13 @@ const Home = () => {
                     <div className="card-icon 4xl:max-w-[36px]">
                       <img className="w-[30px] h-[30px] object-contain" src={databaseIcon} alt="" />
                     </div>
-                    <div className="bg-[rgb(0,128,0,.1)] text-custom-green text-xs rounded-[4px] py-[4px] px-[7px]">
+                    <div className="bg-[rgb(0,128,0,.1)] text-custom-green text-xs 4xl:text-sm rounded-[4px] py-[4px] px-[7px]">
                       12.3%
                     </div>
                   </div>
                   <div className="card-body">
                     <h4 className="card-price text-[26px] font-bold mb-2">₹43.1 Cr.</h4>
-                    <div className="card-details text-xs font-medium">Total AUM</div>
+                    <div className="card-details text-xs 4xl:text-sm font-medium">Total AUM</div>
                   </div>
                 </div>
               </div>
@@ -141,13 +142,13 @@ const Home = () => {
                     <div className="card-icon 4xl:max-w-[36px]">
                       <img className="w-[30px] h-[30px] object-contain" src={receiptLongIcon} alt="" />
                     </div>
-                    <div className="bg-[rgb(0,128,0,.1)] text-custom-green text-xs rounded-[4px] py-[4px] px-[7px]">
+                    <div className="bg-[rgb(0,128,0,.1)] text-custom-green text-xs 4xl:text-sm rounded-[4px] py-[4px] px-[7px]">
                       12.3%
                     </div>
                   </div>
                   <div className="card-body">
                     <h4 className="card-price text-[26px] font-bold mb-2">₹20.1 Cr.</h4>
-                    <div className="card-details text-xs font-medium">Earning till date</div>
+                    <div className="card-details text-xs 4xl:text-sm font-medium">Earning till date</div>
                   </div>
                 </div>
               </div>
@@ -162,7 +163,7 @@ const Home = () => {
                   </div>
                   <div className="card-body">
                     <h4 className="card-price text-[26px] font-bold mb-2">173</h4>
-                    <div className="card-details text-xs font-medium">Active Clients</div>
+                    <div className="card-details text-xs 4xl:text-sm font-medium">Active Clients</div>
                   </div>
                 </div>
               </div>
@@ -172,18 +173,43 @@ const Home = () => {
               <div className="flex items-center gap-3 mb-8">
                 <div className="number font-bold text-[25px]">4</div>
                 <div>
-                  <div className="title text-sm font-medium">Redemptions</div>
-                  <div className="text text-xs text-secondary">Partial exits completed</div>
+                  <div className="title text-sm 4xl:text-lg font-medium">Redemptions</div>
+                  <div className="text text-xs 4xl:text-sm text-secondary">Partial exits completed</div>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <div className="number font-bold text-[25px]">2</div>
                 <div>
-                  <div className="title text-sm font-medium">Drawdowns</div>
-                  <div className="text text-xs text-secondary">Capital calls executed this month</div>
+                  <div className="title text-sm 4xl:text-lg font-medium">Drawdowns</div>
+                  <div className="text text-xs 4xl:text-sm text-secondary">Capital calls executed this month</div>
                 </div>
               </div>
-          
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="shadow-none rounded-sm p-0 gap-0">
+          <CardHeader className="flex items-center justify-between gap-5  py-[7px] px-[7px]  min-h-[50px] pl-6 bg-custom-lightblue">
+            <div className="flex gap-2 items-center">
+              <div className="svg-size-sm">{upcomingIcon}</div>
+              <CardTitle className=" text-[14px] 4xl:text-[23px] font-medium">Reminders</CardTitle>
+            </div>
+            <div className="">
+              <ButtonDemo className="" icon={dragIndicatorIcon} variant="ghost" color="gray" shape="circle" />
+            </div>
+          </CardHeader>
+          <CardContent className="px-3 py-3">
+            <div className="activity-card card  p-3 rounded-lg hover:bg-neutral-50">
+              <h4 className="card-title text-sm 4xl:text-lg font-bold mb-3 flex items-center">
+                It’s Mohit Kapoor’s birthday
+              </h4>
+              <div className="card-date text-custom-blue text-xs 4xl:text-sm font-medium">Send Wishes</div>
+            </div>
+            <div className="activity-card card  p-3 rounded-lg hover:bg-neutral-50">
+              <h4 className="card-title text-sm 4xl:text-lg font-bold mb-3 flex items-center">
+                It’s Sahil Mehta’s Birthday
+              </h4>
+              <div className="card-date text-custom-blue text-xs 4xl:text-sm font-medium">Send Wishes</div>
             </div>
           </CardContent>
         </Card>

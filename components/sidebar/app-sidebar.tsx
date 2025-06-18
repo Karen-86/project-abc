@@ -11,12 +11,21 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import localData from "@/localData";
+import { Separator } from "@/components/ui/separator";
 
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar";
 import { usePathname } from "next/navigation";
 
-const { houseImage, userImage, userGearImage, penImage, gridImage, globImage, calendarImage } =
-  localData.svgs;
+const {
+  houseIcon,
+  groupIcon,
+  businessCenterIcon,
+  orderAproveIcon,
+  receiptLongIcon,
+  bookIcon,
+  settingsIcon,
+  messageIcon,
+} = localData.svgs;
 
 const { brandLogo } = localData.images;
 
@@ -25,40 +34,40 @@ const data = {
     {
       title: "Home",
       url: "/home",
-      icon: houseImage,
+      icon: houseIcon,
       isDisabled: false,
     },
     {
       title: "Clients",
       url: "/clients",
-      icon: gridImage,
+      icon: groupIcon,
       isDisabled: false,
     },
     {
       title: "Investments",
       url: "/investments",
-      icon: userImage,
+      icon: businessCenterIcon,
       isDisabled: false,
     },
     {
       title: "Transactions",
       url: "/transactions",
-      icon: calendarImage,
+      icon: orderAproveIcon,
     },
     {
       title: "Statements",
       url: "/statements",
-      icon: calendarImage,
+      icon: receiptLongIcon,
     },
     {
       title: "Documents",
       url: "/documents",
-      icon: calendarImage,
+      icon: bookIcon,
     },
     {
       title: "Tools",
       url: "/tools",
-      icon: calendarImage,
+      icon: settingsIcon,
     },
   ],
 };
@@ -85,7 +94,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     item.url !== "/" && pathname.startsWith(item.url)
                       ? "sidebar-link-gradient  !text-custom-blue"
                       : ""
-                  } rounded-full font-semibold px-5 py-[21px] text-gray-500 hover:text-gray-500`}
+                  } rounded-full 4xl:text-[18px] font-semibold px-5 py-[21px] 4xl:py-[26px] text-gray-500 hover:text-gray-500 hover:bg-[rgba(0,0,0,0.018)]`}
                 >
                   <Link href={item.url}>
                     {item.icon}
@@ -98,7 +107,19 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="px-5"></SidebarFooter>
+      <SidebarFooter className="px-5 bg-neutral-100">
+        <div className="bg-white p-4 py-6 rounded-lg">
+          <div className="flex gap-2 items-center mb-4">
+            <div className="svg-size-sm">{messageIcon}</div>
+            <h4 className=" text-[14px]  font-medium">Chat with your RM</h4>
+          </div>
+          <div className=" h-3  rounded-lg  space-x-1 flex items-center justify-between">
+            <p className="text-secondary text-xs ">Karun Aggarwal</p>
+            <Separator orientation="vertical" className=""/>
+            <div className=" text-custom-blue text-xs  font-medium">+91 9010756329</div>
+          </div>
+        </div>
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );
