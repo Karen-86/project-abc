@@ -67,14 +67,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
 
   return (
-    <Sidebar collapsible="icon" {...props} className="sidebar">
-      <SidebarHeader className="py-[18px] ">
-        <img className="max-w-[50px]" src={brandLogo} alt="" />
+    <Sidebar collapsible="icon" {...props} className="sidebar ">
+      <SidebarHeader className="pb-4 bg-neutral-100">
+        <img className="max-w-[47px]" src={brandLogo} alt="" />
       </SidebarHeader>
 
-      <SidebarContent className="">
+      <SidebarContent className="bg-neutral-100">
         <SidebarGroup>
-          <SidebarGroupLabel className="uppercase text-gray-400 font-normal">App</SidebarGroupLabel>
+          {/* <SidebarGroupLabel className="uppercase text-gray-400 font-normal">App</SidebarGroupLabel> */}
           <SidebarMenu>
             {data.apps.map((item, index) => (
               <SidebarMenuItem key={index}>
@@ -85,7 +85,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     item.url !== "/" && pathname.startsWith(item.url)
                       ? "sidebar-link-gradient  !text-custom-blue"
                       : ""
-                  } rounded-full px-5 py-[25px] text-gray-500 hover:text-gray-500`}
+                  } rounded-full font-semibold px-5 py-[21px] text-gray-500 hover:text-gray-500`}
                 >
                   <Link href={item.url}>
                     {item.icon}

@@ -18,24 +18,22 @@ import {
 
 import localData from "@/localData";
 
-const { avatarPlaceholderImage } = localData.images;
+const { avatarPlaceholderImage, sunIcon } = localData.images;
 
 const NavUser = () => {
-  const {  } = useApiContext();
-
+  const {} = useApiContext();
 
   const user = {
-    name:  "",
-    email:  "",
-    photoURL: '',
+    name: "",
+    email: "",
+    photoURL: "",
   };
 
   return (
     <DropdownMenu modal={false}>
-      <DropdownMenuTrigger className="flex gap-2 items-center outline-none cursor-pointer dark:hover:bg-secondary hover:bg-gray-50 px-2 py-1 rounded-sm">
+      <DropdownMenuTrigger className="flex gap-2 items-center outline-none cursor-pointer dark:hover:bg-secondary hover:bg-[rgba(0,0,0,0.03)] px-2 py-1 rounded-sm">
         <div className="h-8 w-8 rounded-full border">
-          <img src={ user.photoURL || avatarPlaceholderImage} alt={user.name} />
-       
+          <img src={user.photoURL || avatarPlaceholderImage} alt={user.name} />
         </div>
         <div className="grid flex-1 text-left text-sm leading-tight">
           <span className="truncate font-semibold">{user.name}</span>
@@ -53,7 +51,6 @@ const NavUser = () => {
           <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
             <div className="h-8 w-8 rounded-full">
               <img src={user.photoURL || avatarPlaceholderImage} alt={user.name} />
-             
             </div>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-semibold">{user.name}</span>
@@ -75,7 +72,7 @@ const NavUser = () => {
         <DropdownMenuSeparator />
 
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="cursor-pointer" onClick={()=>{}}>
+        <DropdownMenuItem className="cursor-pointer" onClick={() => {}}>
           <LogOut />
           Log out
         </DropdownMenuItem>
