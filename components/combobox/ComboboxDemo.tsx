@@ -21,7 +21,7 @@ import { v4 as uuidv4 } from "uuid";
 const {arrowDownIcon} = localData.svgs
 
 type ItemsProps = {
-  
+  id: string;
   label: string;
   value: string;
   isSelected: boolean;

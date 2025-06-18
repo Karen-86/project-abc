@@ -9,24 +9,29 @@ import { Payment, columns } from "./data-table/columns";
 import { DataTableDemo } from "./data-table/DataTableDemo";
 
 const { calendarImage } = localData.svgs;
+const { layersImage } = localData.images;
 
 const clientsData = [
   {
+    id: '1',
     label: "item 1",
     value: "item 1",
     isSelected: false,
   },
   {
+    id: '2',
     label: "item 2",
     value: "item 2",
     isSelected: false,
   },
   {
+    id: '3',
     label: "item 3",
     value: "item 3",
     isSelected: false,
   },
   {
+    id: '4',
     label: "item 4",
     value: "item 4",
     isSelected: false,
@@ -35,6 +40,7 @@ const clientsData = [
 
 const Statement = () => {
   type ItemsProps = {
+    id: string;
     label: string;
     value: string;
     isSelected: boolean;
@@ -44,12 +50,20 @@ const Statement = () => {
 
   const [fetchedClients, setFetchedClients] = useState<ItemsProps[]>(clientsData);
 
-  const callback = (value: object) => {
+  const callback = (value: any) => {
+    // let tempFetchedClients = [...fetchedClients]
+    // tempFetchedClients = tempFetchedClients.map(item => {
+    //   return {
+    //     ...item,
+    //     isSelected: value?.id == item.id
+    //   }
+    // })
+    // setFetchedClients(tempFetchedClients)
     console.log(value);
   };
 
   return (
-    <div className="min-h-[100vh] px-5 mb-[100px]">
+    <div className="min-h-[100vh] px-5 mb-[100px]  overflow-visible">
       <div className="">
         <Card className="mb-[24px] shadow-none rounded-sm p-0 gap-0 row-start-3 2xl:row-start-auto">
           <CardHeader className="flex items-center justify-between gap-5  py-[7px] px-[7px]  min-h-[50px] pl-6 bg-custom-lightblue">
@@ -57,71 +71,89 @@ const Statement = () => {
               <CardTitle className=" text-[14px] 4xl:text-[23px] font-medium">Today’s Activity</CardTitle>
             </div>
           </CardHeader>
-          <CardContent className="px-3 py-6 grid [grid-template-columns:repeat(auto-fill,_minmax(200px,_1fr))] gap-3 items-end ">
-            <div className="flex-1 min-w-[180px]">
-              {" "}
-              <ComboboxDemo
-                label="Select Client"
-                defaultItems={fetchedClients}
-                callback={callback}
-                triggerClassName={`combobox-demo-trigger-custom w-full`}
-                contentClassName={`combobox-demo-content-custom`}
-              />
+          <CardContent className="overflow-hidden relative px-3 py-6  ">
+            <div className="relative z-[2] grid [grid-template-columns:repeat(auto-fill,_minmax(180px,_1fr))] gap-3 items-end">
+              <div className="flex-1 min-w-[180px]">
+                {" "}
+                <ComboboxDemo
+                  label="Select Client"
+                  defaultItems={fetchedClients}
+                  callback={callback}
+                  triggerClassName={`combobox-demo-trigger-custom w-full`}
+                  contentClassName={`combobox-demo-content-custom`}
+                />
+              </div>
+              <div className="flex-1 min-w-[180px]">
+                {" "}
+                <ComboboxDemo
+                  label="Folio Number"
+                  defaultItems={fetchedClients}
+                  callback={callback}
+                  triggerClassName={`combobox-demo-trigger-custom w-full`}
+                  contentClassName={`combobox-demo-content-custom`}
+                />
+              </div>
+              <div className="flex-1 min-w-[180px]">
+                {" "}
+                <ComboboxDemo
+                  label="Document Type"
+                  defaultItems={fetchedClients}
+                  callback={callback}
+                  triggerClassName={`combobox-demo-trigger-custom w-full`}
+                  contentClassName={`combobox-demo-content-custom`}
+                />
+              </div>
+              <div className="flex-1 min-w-[180px]">
+                {" "}
+                <InputDemo
+                  label="Select Date"
+                  id="date-picker"
+                  placeholder="Select Date"
+                  className="max-w-[350px] mb-0 hidden sm:block"
+                  inputClassName="!text-[12px] [&::-webkit-calendar-picker-indicator]:hidden"
+                  name="date"
+                  type="date"
+                  defaultValue=""
+                  callback={(e) => console.log(e.target.value)}
+                  endIcon={
+                    <ButtonDemo
+                      onClick={() => {
+                        const input = document.querySelector<HTMLInputElement>("#date-picker");
+                        if (input?.showPicker) {
+                          input.showPicker();
+                        } else {
+                          input?.click();
+                        }
+                      }}
+                      startIcon={calendarImage}
+                      variant="ghost"
+                      color="gray"
+                      shape="circle"
+                      className="!w-[30px] !h-[30px]"
+                    />
+                  }
+                />
+              </div>
+              <div className="flex-1 min-w-[180px]">
+                {" "}
+                <ButtonDemo text="Download Statement" size="lg" className="w-full " />
+              </div>
+              <div className="flex-1 min-w-[180px]">
+                <ButtonDemo
+                  text="Share on email"
+                  size="lg"
+                  variant="outline"
+                  className="w-full "
+                  color="black"
+                />
+              </div>
             </div>
-            <div className="flex-1 min-w-[180px]">
-              {" "}
-              <ComboboxDemo
-                label="Folio Number"
-                defaultItems={fetchedClients}
-                callback={callback}
-                triggerClassName={`combobox-demo-trigger-custom w-full`}
-                contentClassName={`combobox-demo-content-custom`}
+            <div className="layer-images absolute  right-0 bottom-0 top-0 w-[700px] hidden sm:block  pointer-events-none">
+              <img
+                className="absolute right-0 top-0 bottom-0 h-full object-cover "
+                src={layersImage}
+                alt=""
               />
-            </div>
-            <div className="flex-1 min-w-[180px]">
-              {" "}
-              <ComboboxDemo
-                label="Document Type"
-                defaultItems={fetchedClients}
-                callback={callback}
-                triggerClassName={`combobox-demo-trigger-custom w-full`}
-                contentClassName={`combobox-demo-content-custom`}
-              />
-            </div>
-            <div className="flex-1 min-w-[180px]">
-              {" "}
-              <InputDemo
-                label="Select Date"
-                id="date-picker"
-                placeholder="Select Date"
-                className="max-w-[350px] mb-0 hidden sm:block"
-                inputClassName="!text-[12px] [&::-webkit-calendar-picker-indicator]:hidden"
-                name="date"
-                type="date"
-                defaultValue=""
-                callback={(e) => console.log(e.target.value)}
-                endIcon={
-                  <ButtonDemo
-                    onClick={() => {
-                      const input = document.querySelector<HTMLInputElement>("#date-picker");
-                      if (input?.showPicker) {
-                        input.showPicker();
-                      } else {
-                        input?.click();
-                      }
-                    }}
-                    startIcon={calendarImage}
-                    variant="ghost"
-                    color="gray"
-                    shape="circle"
-                    className="!w-[30px] !h-[30px]"
-                  />
-                }
-              />
-            </div>
-            <div className="flex-1 min-w-[180px]">
-              {" "}
-              <ButtonDemo text="Download Statement" size="lg" className="w-full" />
             </div>
           </CardContent>
         </Card>

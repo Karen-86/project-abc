@@ -88,7 +88,7 @@ export function DataTableDemo<TData extends IncludedProps, TValue>({
 
   return (
     <div className="w-full">
-      <div className="flex items-center mb-4 gap-5">
+      {/* <div className="flex items-center mb-4 gap-5">
         <Input
           placeholder="Filter names..."
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
@@ -119,7 +119,7 @@ export function DataTableDemo<TData extends IncludedProps, TValue>({
               })}
           </DropdownMenuContent>
         </DropdownMenu>
-      </div>
+      </div> */}
       <div className="rounded-md overflow-hidden">
         <Table>
           <TableHeader>

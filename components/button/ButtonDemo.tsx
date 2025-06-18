@@ -14,6 +14,7 @@ const buttonStyles = {
     white:
       "bg-white text-[rgb(0,0,255)] border-[1px] border-solid border-[rgb(237,235,255)] hover:bg-[rgba(255,255,255,0.4)]",
     blue: "bg-[rgb(0,0,255)] hover:bg-[rgb(10,10,196)]",
+    black: ''
   },
   secondary: {
     defaultColor: "",
@@ -22,6 +23,7 @@ const buttonStyles = {
     yellow: "bg-yellow-50 hover:bg-yellow-100 text-yellow-600",
     white: "bg-white border-[1px_solid_rgb(237,235,255)]",
     blue: "bg-[rgb(0,0,255)] hover:bg-[rgb(10,10,196)]",
+    black: ''
   },
   outline: {
     defaultColor: "",
@@ -31,6 +33,7 @@ const buttonStyles = {
       "text-yellow-600 hover:text-yellow-600 border-yellow-200 hover:border-yellow-300 hover:bg-yellow-50",
     white: "bg-white border-[1px_solid_rgb(237,235,255)]",
     blue: "bg-[rgb(0,0,255)] hover:bg-[rgb(10,10,196)]",
+    black: 'bg-transparent border-black hover:bg-[rgba(255,255,255,.1)]'
   },
   ghost: {
     defaultColor: "",
@@ -40,6 +43,7 @@ const buttonStyles = {
     white:
       "bg-white border border-[1px] border-solid border-[rgb(237,235,255)] hover:bg-[rgba(255,255,255,0.9)]",
     blue: "bg-[rgb(0,0,255)] hover:bg-[rgb(10,10,196)]",
+    black: ''
   },
   destructive: {
     defaultColor: "",
@@ -48,6 +52,7 @@ const buttonStyles = {
     yellow: "bg-orange-600 hover:bg-orange-500",
     white: "bg-white border-[1px_solid_rgb(237,235,255)]",
     blue: "bg-[rgb(0,0,255)] hover:bg-[rgb(10,10,196)]",
+    black: ''
   },
   link: {
     defaultColor: "",
@@ -56,6 +61,7 @@ const buttonStyles = {
     yellow: "text-yellow-600 hover:text-yellow-500",
     white: "bg-white border-[1px_solid_rgb(237,235,255)]",
     blue: "bg-[rgb(0,0,255)] hover:bg-[rgb(10,10,196)]",
+    black: ''
   },
 };
 
@@ -67,7 +73,7 @@ type ButtonDemoProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   icon?: ReactElement | null;
   startIcon?: ReactElement | null;
   endIcon?: ReactElement | null;
-  color?: "defaultColor" | "green" | "yellow" | "gray" | "white" | "blue";
+  color?: "defaultColor" | "green" | "yellow" | "gray" | "white" | "black" | "blue";
   disabled?: boolean;
   onClick?: () => void;
   shape?: string;

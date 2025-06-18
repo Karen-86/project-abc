@@ -9,6 +9,7 @@ const images = {
   databaseIcon: "/assets/images/icons/database.png",
   receiptLongIcon: "/assets/images/icons/receipt-long.png",
   handshakeIcon: "/assets/images/icons/handshake.png",
+  layersImage: "/assets/images/rest/layers.png",
 };
 
 const localData = {

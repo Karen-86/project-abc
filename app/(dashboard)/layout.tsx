@@ -7,6 +7,7 @@ import { NavUser, Footer } from "@/components/index";
 import type { Metadata } from "next";
 import localData from "@/localData";
 import { ButtonDemo, InputDemo } from "@/components/index.js";
+import { usePathname } from "next/navigation";
 
 const { sunIcon, gridIcon } = localData.images;
 const { calendarImage } = localData.svgs;
@@ -17,6 +18,10 @@ const { calendarImage } = localData.svgs;
 // };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const slug = pathname.split("/").filter(Boolean)[0];
+  console.log(slug);
+
   return (
     <SidebarProvider className={``}>
       <AppSidebar />
@@ -25,29 +30,40 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className={`flex items-center  gap-2 px-4 w-full`}>
             <SidebarTrigger className="-ml-1" />
             <div className="flex items-center gap-2 text-[16px] lg:text-[24px] font-bold text-gradient whitespace-nowrap">
-              <img className="max-w-[40px] hidden lg:block" src={sunIcon} alt="" /> Good Morning, Rev
+              {slug == "home" ? (
+                <>
+                  <img className="max-w-[40px] hidden lg:block" src={sunIcon} alt="" /> Good Morning, Rev
+                </>
+              ) : (
+                slug
+              )}
             </div>
             <Separator orientation="vertical" className="mr-2 h-4" />
             <div className="ml-auto flex items-center gap-3">
-              <InputDemo
-                placeholder="Search Period"
-                className="max-w-[350px] mb-0 hidden sm:block"
-                inputClassName="!text-[12px]"
-                name="search"
-                type="text"
-                defaultValue=""
-                callback={(e) => console.log(e.target.value)}
-                endIcon={
-                  <ButtonDemo
-                    startIcon={calendarImage}
-                    variant="ghost"
-                    color="gray"
-                    shape="circle"
-                    className="!w-[30px] !h-[30px]"
+              {slug == "home" && (
+                <>
+                  <InputDemo
+                    placeholder="Search Period"
+                    className="max-w-[350px] mb-0 hidden sm:block"
+                    inputClassName="!text-[12px]"
+                    name="search"
+                    type="text"
+                    defaultValue=""
+                    callback={(e) => console.log(e.target.value)}
+                    endIcon={
+                      <ButtonDemo
+                        startIcon={calendarImage}
+                        variant="ghost"
+                        color="gray"
+                        shape="circle"
+                        className="!w-[30px] !h-[30px]"
+                      />
+                    }
                   />
-                }
-              />
-              <ButtonDemo icon={<img src={gridIcon} />} variant="ghost" color="gray" shape="circle" />
+
+                  <ButtonDemo icon={<img src={gridIcon} />} variant="ghost" color="gray" shape="circle" />
+                </>
+              )}
               <NavUser />
             </div>
           </div>

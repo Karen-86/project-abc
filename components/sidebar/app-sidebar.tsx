@@ -77,7 +77,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar collapsible="icon" {...props} className="sidebar ">
-      <SidebarHeader className="pb-4 bg-neutral-100">
+      <SidebarHeader className="pb-4 pt-3 pl-3 bg-neutral-100">
         <img className="max-w-[47px]" src={brandLogo} alt="" />
       </SidebarHeader>
 
